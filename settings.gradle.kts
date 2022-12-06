@@ -5,5 +5,5 @@ pluginManagement {
 }
 
 rootProject.name = "vooooote"
-include("common")
 include("server")
+include("common")

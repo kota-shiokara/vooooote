@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     application
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10"
 }
 
 group = "jp.ikanoshiokara.vooooote"
@@ -17,17 +18,19 @@ repositories {
 
 dependencies {
     implementation(project(":common"))
-    implementation(kotlin("stdlib"))
+    implementation(kotlin("stdlib-jdk8"))
 
     // ktor
-    val ktor_version = "2.1.3"
-    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-status-pages-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-default-headers-jvm:$ktor_version")
+    val ktorVersion = "2.1.3"
+    implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-status-pages-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-default-headers-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
     // logging
-    val logback_version = "1.4.4"
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-server-call-logging:$ktor_version")
+    val logbackVersion = "1.4.4"
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
 }
