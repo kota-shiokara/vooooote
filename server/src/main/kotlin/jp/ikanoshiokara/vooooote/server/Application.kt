@@ -1,5 +1,6 @@
 package jp.ikanoshiokara.vooooote.server
 
+import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.callloging.*
@@ -23,12 +24,13 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
+
     routing {
         get("/") {
-            call.respondText("Hello, world!")
+            call.respondText("Hello, world!", status = HttpStatusCode.OK)
         }
         get("/ping") {
-            call.respondText("pong")
+            call.respondText("pong", status = HttpStatusCode.OK)
         }
         get("/mock") {
             val proposals = mutableListOf(

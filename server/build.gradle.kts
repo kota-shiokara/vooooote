@@ -34,3 +34,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
 }
+
+tasks {
+    create("stage").dependsOn("installDist")
+}
