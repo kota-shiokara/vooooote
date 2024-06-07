@@ -3,13 +3,15 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.22"
-    id("io.ktor.plugin") version "2.3.7"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
+    val kotlinVersion = "1.9.23"
+
+    kotlin("jvm") version kotlinVersion
+    id("io.ktor.plugin") version "2.3.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version kotlinVersion
 }
 
 group = "jp.ikanoshiokara"
-version = "0.0.1"
+version = "0.0.3"
 
 application {
     mainClass.set("jp.ikanoshiokara.ApplicationKt")
@@ -26,8 +28,6 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
-    implementation("io.ktor:ktor-server-swagger-jvm")
-    implementation("io.ktor:ktor-server-openapi")
     implementation("io.ktor:ktor-server-cors-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")
@@ -35,5 +35,5 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
     // Swagger UI
-    implementation("io.github.smiley4:ktor-swagger-ui:2.7.4")
+    implementation("io.github.smiley4:ktor-swagger-ui:2.10.0")
 }

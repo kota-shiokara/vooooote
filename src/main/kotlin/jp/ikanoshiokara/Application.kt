@@ -10,13 +10,18 @@ import jp.ikanoshiokara.plugins.configureSwagger
 
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
+    embeddedServer(
+        Netty,
+        port = 8080,
+        host = "0.0.0.0",
+        watchPaths = listOf("classes"),
+        module = Application::module
+    ).start(wait = true)
 }
 
 fun Application.module() {
+    configureSerialization()
     configureHTTP()
     configureSwagger()
     configureRouting()
-    configureSerialization()
 }
