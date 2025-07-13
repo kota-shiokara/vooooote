@@ -1,4 +1,4 @@
-# vooooote
+# vooooote-server
 
 ## Usage
 To start the process, execute the following command
