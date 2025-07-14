@@ -35,4 +35,5 @@ dependencies {
     testImplementation(libs.kotlin.test.junit)
 
     implementation(libs.smiley.swagger)
+    implementation(libs.smiley.openapi)
 }

@@ -10,9 +10,6 @@ import io.ktor.server.routing.routing
 
 
 fun Application.configureHTTP() {
-    routing {
-        swaggerUI(path = "openapi")
-    }
     install(CORS) {
         allowMethod(HttpMethod.Options)
         allowMethod(HttpMethod.Put)
