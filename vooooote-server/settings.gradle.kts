@@ -1,1 +1,1 @@
-rootProject.name = "vooooote"
+rootProject.name = "vooooote-server"

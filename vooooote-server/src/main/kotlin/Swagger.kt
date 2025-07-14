@@ -1,4 +1,4 @@
-package jp.ikanoshiokara.plugins
+package jp.ikanoshiokara
 
 import io.github.smiley4.ktorswaggerui.SwaggerUI
 import io.ktor.server.application.Application

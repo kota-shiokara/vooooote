@@ -1,23 +1,15 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
 
 plugins {
-    val kotlinVersion = "1.9.23"
-
-    kotlin("jvm") version kotlinVersion
-    id("io.ktor.plugin") version "2.3.10"
-    id("org.jetbrains.kotlin.plugin.serialization") version kotlinVersion
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
+    alias(libs.plugins.kotlin.plugin.serialization)
 }
 
 group = "jp.ikanoshiokara"
-version = "0.0.3"
+version = "0.0.1"
 
 application {
-    mainClass.set("jp.ikanoshiokara.ApplicationKt")
-
-    val isDevelopment: Boolean = project.ext.has("development")
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+    mainClass = "io.ktor.server.netty.EngineMain"
 }
 
 repositories {
@@ -25,15 +17,22 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-content-negotiation-jvm")
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
-    implementation("io.ktor:ktor-server-cors-jvm")
-    implementation("io.ktor:ktor-server-netty-jvm")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    testImplementation("io.ktor:ktor-server-tests-jvm")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation(libs.koin.ktor)
+    implementation(libs.koin.logger.slf4j)
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.exposed.core)
+    implementation(libs.exposed.jdbc)
+    implementation(libs.h2)
+    implementation(libs.ktor.server.call.logging)
+    implementation(libs.ktor.server.swagger)
+    implementation(libs.ktor.server.cors)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.logback.classic)
+    implementation(libs.ktor.server.config.yaml)
+    testImplementation(libs.ktor.server.test.host)
+    testImplementation(libs.kotlin.test.junit)
 
-    // Swagger UI
-    implementation("io.github.smiley4:ktor-swagger-ui:2.10.0")
+    implementation(libs.smiley.swagger)
 }

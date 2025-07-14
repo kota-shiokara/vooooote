@@ -3,13 +3,8 @@ package jp.ikanoshiokara
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import jp.ikanoshiokara.plugins.configureHTTP
-import jp.ikanoshiokara.plugins.configureRouting
-import jp.ikanoshiokara.plugins.configureSerialization
-import jp.ikanoshiokara.plugins.configureSwagger
 
-
-fun main() {
+fun main(args: Array<String>) {
     embeddedServer(
         Netty,
         port = 8080,
@@ -20,8 +15,11 @@ fun main() {
 }
 
 fun Application.module() {
+    configureFrameworks()
     configureSerialization()
+    configureDatabases()
+    configureMonitoring()
     configureHTTP()
-    configureSwagger()
     configureRouting()
+    configureSwagger()
 }
