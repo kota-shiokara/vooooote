@@ -21,11 +21,16 @@ fun Application.configureKoinModules() {
             single<Database>(
                 createdAtStart = true
             ) {
+                val driver = environment.config.property("db.driver").getString()
+                val url = environment.config.property("db.url").getString()
+                val user = environment.config.property("db.user").getString()
+                val password = environment.config.property("db.password").getString()
+
                 Database.connect(
-                    url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
-                    user = "root",
-                    driver = "org.h2.Driver",
-                    password = "",
+                    url = url,
+                    user = user,
+                    driver = driver,
+                    password = password,
                 )
             }
             single<OmikujiRepository> {

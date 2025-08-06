@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.exposed.core)
     implementation(libs.exposed.jdbc)
-    implementation(libs.h2)
+    implementation(libs.postgresql)
     implementation(libs.ktor.server.call.logging)
     implementation(libs.ktor.server.swagger)
     implementation(libs.ktor.server.cors)

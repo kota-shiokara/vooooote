@@ -7,6 +7,7 @@ kotlin-version = "2.1.10"
 ktor-version = "3.2.1"
 logback-version = "1.5.13"
 smiley-version = "5.1.0"
+postgresql-version = "42.7.3"
 
 [libraries]
 koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-version" }
@@ -28,6 +29,7 @@ kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version
 
 smiley-swagger = { module = "io.github.smiley4:ktor-swagger-ui", version.ref = "smiley-version" }
 smiley-openapi = { module = "io.github.smiley4:ktor-openapi", version.ref = "smiley-version" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql-version" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
